@@ -8,7 +8,7 @@ class SupabaseService {
   final _supabase = Supabase.instance.client;
   
 
-  // Autenticación
+
   Future<AuthResponse> signInWithEmail(String email, String password) async {
     return await _supabase.auth.signInWithPassword(
       email: email,
@@ -29,7 +29,7 @@ class SupabaseService {
 
   User? get currentUser => _supabase.auth.currentUser;
 
-  // Operaciones CRUD para Mascotas
+
   Future<List<Map<String, dynamic>>> getMascotas() async {
     return await _supabase.from('mascotas').select();
   }
@@ -47,7 +47,7 @@ class SupabaseService {
     await _supabase.from('mascotas').delete().eq('id', id);
   }
 
-  // Operaciones CRUD para Citas
+
   Future<List<Map<String, dynamic>>> getCitas() async {
     return await _supabase.from('citas').select('''
       *, 
